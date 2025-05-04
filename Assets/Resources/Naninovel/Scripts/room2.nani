@@ -1,0 +1,36 @@
+@runMyMethod name:QuestReceiveNPC1
+@hide Mia
+@back room2
+
+
+
+@char Eva.Eva position:3,-2.7
+
+Eva: Oh... so you're the one Mia sent? I was beginning to wonder when you'd show up.
+
+@choice "Yes, she said you have something for me." gosub:.continueEva
+
+@stop
+
+# continueEva
+Eva: Okay. But first, let's see if you're really ready. I have a mini-game for you to warm you up for the big task ahead.
+
+@choice "Tell me more about the game." gosub:.ExplainGame
+@choice "Okay im ready" gosub:.GameStart
+
+@stop
+
+# ExplainGame
+Eva: This is a simple mini-game where you need to match pairs of cards. All cards are initially face down, and you can flip two cards at a time. If they match, they stay flipped. The goal is to match all pairs and complete the game.
+
+# GameStart
+Eva: Okay, if you're ready, then get started
+@spawn CanvasMiniGame
+
+@back mini-game position:0,-0.75,100
+@hide Eva
+@hidePrinter   
+
+@runMyMethod name:StartMiniGame
+
+@save

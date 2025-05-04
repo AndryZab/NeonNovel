@@ -1,0 +1,29 @@
+@input name summary:"Choose your name."
+@stop
+
+
+@back room1
+
+@char Mia.MiaNormalRoom1 position:0,-5.41 scale:0.65,0.65,0.65
+
+Mia: Well, hello, {name}. I feel that you're not like the others. I have a task that will definitely excite you. Do you want to take it?
+
+@save
+
+
+@choice "What kind of reward are we talking about?" gosub:.choice1
+@choice "Yes, I am ready." gosub:.choice2
+
+@stop
+# choice1
+Mia: That would ruin the surprise, wouldn't it? But I promise... it's worth it.
+
+@choice "Yes, I am ready." gosub:.choice2
+
+@stop
+# choice2
+Mia: I see you've gone straight to the point. Well then, {name}, I want you to do something for me. You must go to my friend Eva. She will know exactly who you mean and will give you a task you simply won’t be able to refuse. And I promise you this — if you complete it and bring me that item, I will give you unforgettable emotions and experience.
+@save
+
+
+@goto room2

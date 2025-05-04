@@ -1,0 +1,17 @@
+@back room2
+@char Eva.Eva position:3,-2.7
+  Eva: Well, that was... interesting.
+
+
+Eva: Now listen carefully. There's an item I need � and it�s not something you�ll find in plain sight. Take this note. It will guide you. When you have it, return to Mia.
+@runMyMethod name:Quest�ompleteNPC1
+
+@runMyMethod name:QuestReceiveNPC2
+
+@back room3 position:-0.95,0,0 scale:0.3481725,0.3481725,0.3481725
+@hide Eva
+@hidePrinter 
+
+@spawn Ring pos:3.67,-1.55,0
+
+# RingIsFinded

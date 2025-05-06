@@ -1,17 +1,128 @@
-@back room2
-@char Eva.Eva position:3,-2.7
-  Eva: Well, that was... interesting.
 
-
-Eva: Now listen carefully. There's an item I need � and it�s not something you�ll find in plain sight. Take this note. It will guide you. When you have it, return to Mia.
-@runMyMethod name:Quest�ompleteNPC1
-
-@runMyMethod name:QuestReceiveNPC2
-
-@back room3 position:-0.95,0,0 scale:0.3481725,0.3481725,0.3481725
+@back room3 position:-0.95,0 scale:1,1,1
 @hide Eva
 @hidePrinter 
 
-@spawn Ring pos:3.67,-1.55,0
-
+@spawn CanvasRing
+@Despawn CanvasMiniGame
+@stop
 # RingIsFinded
+@save
+@setIntQuest val:3
+@runC#Method action:rooms room:1 state:true
+@runC#Method action:rooms room:2 state:false
+@runC#Method id:Quest2 action:complete
+@sfx QuestCompleted
+@runC#Method id:Quest3 action:receive
+@print "Oh i finded this ring its not be so hard."
+
+
+@stop
+
+# ReturnToPub
+@back room2 position:0,0
+
+
+@print "Eva should have been here, maybe she go to Mia."
+@save
+@setIntQuest val:4
+@runC#Method id:Quest3 action:complete
+@sfx QuestCompleted
+@runC#Method id:Quest4 action:receive
+@runC#Method action:rooms room:0 state:true
+@runC#Method action:rooms room:1 state:false
+
+@stop
+
+# LastGame
+@save
+@Despawn CanvasRing
+@setIntQuest val:4
+@runC#Method action:rooms room:0 state:false
+@runC#Method action:rooms room:1 state:false
+@runC#Method action:rooms room:2 state:false
+@back room1 position:0,0 scale:1,1,1
+@char Mia.Mia position:-4.69,-4.1 scale:1,1,1
+@char Eva.Eva position:0.15,-5.76 scale:0.95,0.95,0.95
+
+Mia: Hey {Username} you remember i have surprise for you, i hope you ready to give me this ring?
+
+
+
+Eva: I forgot to say that for giving me the ring I will teach you an unforgettable experience and you will get everything you want for this ring;
+
+@choice "Give ring Mia" gosub:.MiaHappy
+@choice "Give ring Eva" gosub:.EvaHappy
+@choice "Claim ring" gosub:.RingIsClaimed
+
+@stop
+# MiaHappy
+
+@char Mia.MiaHappy
+@sfx Happy
+Mia: Well, okay, now you will get your surprise, I promise you it will be very pleasant for you, come with me.
+
+@char Eva.EvaAngry
+@sfx Angry
+Eva: I'm very angry with you, you were supposed to give this ring to me, and now I don't want to see you anymore.
+
+@runC#Method id:Quest4 action:complete
+@sfx QuestCompleted
+@runC#Method action:hide
+@hide Eva
+@hide Mia
+@hidePrinter 
+@back Soon
+@wait 3
+
+@title
+
+@stop
+# EvaHappy
+
+@char Eva.EvaHappy
+@sfx Happy
+Eva: Thank you very much, and now come with me, I will do anything you want.
+
+@char Mia.MiaAngry
+@sfx Angry
+Mia: I expected more from you, I thought you wanted a surprise, but if not, I don't want to see you anymore.
+
+@runC#Method id:Quest4 action:complete
+@sfx QuestCompleted
+@runC#Method action:hide
+@hide Eva
+@hide Mia
+@hidePrinter
+
+@back Soon
+
+@wait 3
+
+@title
+
+
+@stop
+# RingIsClaimed
+
+@char Eva.EvaSad
+@sfx Sad
+Eva: I'm disappointed in you, I thought we had an understanding, and you treated me so badly.
+
+@char Mia.MiaSad
+@sfx Sad
+Mia: I see that you didn’t really want my surprise, so now you’ll never know what it was — and I’m truly hurt by you
+
+@wait 0.5
+
+@runC#Method id:Quest4 action:complete
+@sfx QuestCompleted
+@runC#Method action:hide
+@hide Eva
+@hide Mia
+@hidePrinter 
+
+@back Soon
+
+@wait 3
+@title

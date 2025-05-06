@@ -1,24 +1,38 @@
 using Naninovel;
 using System.Threading.Tasks;
-using static Naninovel.FountainConverter;
 
-[CommandAlias("runMyMethod")]
+[CommandAlias("runC#Method")]
 public class NaniRequest : Command
 {
-    [ParameterAlias("name")]
-    public StringParameter MethodName;
+    [ParameterAlias("id")]
+    public StringParameter QuestId;
+
+    [ParameterAlias("room")]
+    public IntegerParameter roomID;
+
+    [ParameterAlias("state")]
+    public BooleanParameter stateButtonMap;
+
+    [ParameterAlias("action")]
+    public StringParameter Action;
 
     public override UniTask ExecuteAsync(AsyncToken asyncToken = default)
     {
-        switch (MethodName.Value)
+        switch (Action.Value.ToLower())
         {
-            case "QuestReceiveNPC1":
-                RequstCallsToNani.Instance.QuestReceiveNPC1();
+            case "receive":
+                QuestManager.Instance.ReceiveQuest(QuestId);
                 break;
-            case "Quest—ompleteNPC1":
-                RequstCallsToNani.Instance.Quest—ompleteNPC1();
+            case "complete":
+                QuestManager.Instance.CompleteQuest(QuestId);
                 break;
-            
+            case "hide":
+                QuestManager.Instance.HideQuests();
+                break;
+            case "rooms":
+                Map.Instance.SetActiveRooms(roomID, stateButtonMap);
+                break;
+
         }
 
         return UniTask.CompletedTask;

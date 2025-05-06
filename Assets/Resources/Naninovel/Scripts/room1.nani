@@ -1,14 +1,16 @@
+@bgm music
 @input name summary:"Choose your name."
 @stop
-
+@set Username=name
+@spawn CanvasQuests
+@spawn CanvasMap
+@runC#Method room:0 state:false action:rooms
+@runC#Method room:1 state:false action:rooms
+@runC#Method room:2 state:false action:rooms
 
 @back room1
-
-@char Mia.MiaNormalRoom1 position:0,-5.41 scale:0.65,0.65,0.65
-
+@char Mia.MiaNormalRoom1 position:0,-5.84 scale:0.9,0.9,0.9
 Mia: Well, hello, {name}. I feel that you're not like the others. I have a task that will definitely excite you. Do you want to take it?
-
-@save
 
 
 @choice "What kind of reward are we talking about?" gosub:.choice1
@@ -24,6 +26,8 @@ Mia: That would ruin the surprise, wouldn't it? But I promise... it's worth it.
 # choice2
 Mia: I see you've gone straight to the point. Well then, {name}, I want you to do something for me. You must go to my friend Eva. She will know exactly who you mean and will give you a task you simply won’t be able to refuse. And I promise you this — if you complete it and bring me that item, I will give you unforgettable emotions and experience.
 @save
+@runC#Method id:Quest1 action:receive
+@runC#Method room:1 state:true action:rooms
 
 
-@goto room2
+@setIntQuest val:1

@@ -91,9 +91,15 @@ MonoBehaviour:
     - name: CanvasMiniGame
       pathPrefix: Spawn
       guid: 1659678364c926a489928b96e6d2e7e7
-    - name: Ring
+    - name: CanvasRing
       pathPrefix: Spawn
-      guid: 3cb49ffb217ac6a4f8c723aeab594114
+      guid: d843b965272a2c541a37a3efc79e4f23
+    - name: CanvasQuests
+      pathPrefix: Spawn
+      guid: 68dc7e58c48a5794c848b7dcde1f64a4
+    - name: CanvasMap
+      pathPrefix: Spawn
+      guid: 5bb0959d3ba32d6429714521b7752224
   - Id: UI
     Resources:
     - name: ClickThroughPanel
@@ -150,6 +156,9 @@ MonoBehaviour:
     - name: ScriptNavigatorUI
       pathPrefix: UI
       guid: 735d6aa767879aa469134858c5b2f0a7
+    - name: CanvasSoundClick
+      pathPrefix: UI
+      guid: e39c140518154f4409e65b4ac0c564e2
   - Id: Backgrounds/18e134c2-a2b5-4964-a18c-f69601fd5ce9
     Resources:
     - name: room2
@@ -164,6 +173,9 @@ MonoBehaviour:
     - name: room3
       pathPrefix: Backgrounds/MainBackground
       guid: 0eeb52517c7e0474bbc8c7ba8f7e2a37
+    - name: Soon
+      pathPrefix: Backgrounds/MainBackground
+      guid: e2cd1d97356a90043a9c77d9aaeb7a85
   - Id: Scripts
     Resources:
     - name: room1
@@ -180,24 +192,37 @@ MonoBehaviour:
     - name: MiaNormalRoom1
       pathPrefix: Characters/Mia
       guid: 7c9d583cc5d45b442bb15fa3b5c1008e
-  - Id: Characters/83c1b8e0-0ad1-44c2-993e-e1ef2dff8dea
-    Resources:
-    - name: ManAngry
-      pathPrefix: Characters/Man
-      guid: afcb3fef1e20d9641ab8ee4358b72447
-    - name: ManHappy
-      pathPrefix: Characters/Man
-      guid: ec02dd7dd84126049924de19f12caecf
-    - name: ManNormal
-      pathPrefix: Characters/Man
-      guid: b05761684bba821479236f67a978a87f
-    - name: ManSad
-      pathPrefix: Characters/Man
-      guid: 8e66277f3cedfe6428552b3a1f4e0558
+    - name: MiaSad
+      pathPrefix: Characters/Mia
+      guid: 7c3756cb285e476448dd4f900ac0daf1
+    - name: MiaHappy
+      pathPrefix: Characters/Mia
+      guid: 4d156ed6bb08c8d489b14d1764995583
+    - name: Mia
+      pathPrefix: Characters/Mia
+      guid: 8d38c6adcf9d2834bb5e5a02034e7302
+    - name: MiaAngry
+      pathPrefix: Characters/Mia
+      guid: 4f5c4d35ba91c7d4380e5c1bc691b605
   - Id: Unlockables
     Resources: []
   - Id: Audio
-    Resources: []
+    Resources:
+    - name: Angry
+      pathPrefix: Audio
+      guid: cb27a2a4e30c4eb48b4ad6166af28d2f
+    - name: music
+      pathPrefix: Audio
+      guid: 82a438abdef235547960f2c932096be4
+    - name: Sad
+      pathPrefix: Audio
+      guid: 707884895068ffa44a1ef59bf70b4265
+    - name: Happy
+      pathPrefix: Audio
+      guid: 8829d04e5999db5428ffb0eb062b764c
+    - name: QuestCompleted
+      pathPrefix: Audio
+      guid: b97ded9099125824493fb1eb792adb43
   - Id: CharacterAvatars
     Resources: []
   - Id: Characters/ec9ebf49-02a4-498a-a610-8425f238713c
@@ -214,3 +239,6 @@ MonoBehaviour:
     - name: EvaSad
       pathPrefix: Characters/Eva
       guid: 2cea9913f98c10d49a336dc1e03959a4
+    - name: EvaSeat
+      pathPrefix: Characters/Eva
+      guid: 4153ec04cd73c5c419873cf32c924c45
